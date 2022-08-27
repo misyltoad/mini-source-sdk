@@ -8,11 +8,7 @@ $Configuration
 	$General
 	{
 		// Request a specific compiler toolset.
-		$PlatformToolset "v100" [$VS2010]
-		$PlatformToolset "v110_xp" [$VS2012 && !$ANALYZE] // VS 2012 targeting Windows XP - http://msdn.microsoft.com/en-us/library/vstudio/jj851139.aspx
-		$PlatformToolset "v110" [$VS2012 && $ANALYZE] // VS 2012 for /analyze
-		$PlatformToolset "v120_xp" [$VS2013 && !$ANALYZE] // VS 2013 targeting Windows XP - http://msdn.microsoft.com/en-us/library/vstudio/jj851139.aspx
-		$PlatformToolset "v120" [$VS2013 && $ANALYZE] // VS 2013 for /analyze
+		$PlatformToolset "v143"
 	}
 
 	$General
@@ -30,8 +26,14 @@ $Configuration
 	{
 		$MultiProcessorCompilation "True"
 
-		// warning C4316: object allocated on the heap may not be aligned 16
-		$DisableSpecificWarnings	"$BASE;4316" [$VS2013]
+		$DisableSpecificWarnings	"$BASE;4201" // warning C4201: nonstandard extension used: nameless struct/union
+		$DisableSpecificWarnings	"$BASE;4316" // warning C4316: object allocated on the heap may not be aligned 16
+		$DisableSpecificWarnings	"$BASE;4456" // warning C4456: declaration of 'c' hides previous local declaration
+		$DisableSpecificWarnings	"$BASE;4457" // warning C4457: declaration of 'limit' hides function parameter
+		$DisableSpecificWarnings	"$BASE;4471" // warning C4471: '_D3DFORMAT': a forward declaration of an unscoped enumeration must have an underlying type (compiling source file vjolt_debugrender.cpp)
+		$DisableSpecificWarnings	"$BASE;4530" // warning C4530: C++ exception handler used, but unwind semantics are not enabled. Specify /EHsc
+		$DisableSpecificWarnings	"$BASE;4838" // warning C4838: conversion from 'unsigned int' to 'const int32' requires a narrowing conversion
+		$DisableSpecificWarnings	"$BASE;5054" // warning C5054: operator '|': deprecated between enumerations of different types (compiling source file utlsymbol.cpp)
 
 		// Having lots of warnings makes it harder to notice new, and possibly
 		// important warnings, both on buildbot and in the output window. Lots
@@ -50,9 +52,11 @@ $Configuration
 		// reduces the client.dll size by about 1.14%. When linker optimizations are disabled this has no
 		// effect. This option does not show up in the IDE so we need to add it in $AdditionalOptions.
 		// http://blogs.msdn.com/b/vcblog/archive/2013/09/11/introducing-gw-compiler-switch.aspx
-		$AdditionalOptions	"$BASE /Gw" [$VS2013]
+		$AdditionalOptions	"$BASE /Gw"
 		// Strip unreferenced inline functions from object files to shrink .obj files and .lib files,
 		// improve linker speed, and improve conformance. Requires VS 2013 Update 3
-		$AdditionalOptions	"$BASE /Zc:inline" [$VS2013]
+		$AdditionalOptions	"$BASE /Zc:inline"
+
+		$AdditionalOptions	"$BASE /std:c++20"
 	}
 }
