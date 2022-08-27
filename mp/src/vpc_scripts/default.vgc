@@ -4,15 +4,6 @@
 //	Configurations for all Source(TM) Projects
 //-----------------------------------------------------------------------------
 
-////////////////
-// Game Names //
-////////////////
-
-$Games
-{
-	"HL2MP"
-}
-
 // Makes the VPC scripts work in the SDK's context
 $Conditional "SOURCESDK" "1"
 
