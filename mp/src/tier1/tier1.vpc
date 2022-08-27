@@ -41,7 +41,6 @@ $Project "tier1"
 		$File	"interface.cpp"
 		$File	"KeyValues.cpp"
 		$File	"kvpacker.cpp"
-		$File	"lzmaDecoder.cpp"
 		$File	"lzss.cpp" [!$SOURCESDK]
 		$File	"mempool.cpp"
 		$File	"memstack.cpp"
@@ -78,15 +77,6 @@ $Project "tier1"
 		$File	"snappy.cpp"
 		$File	"snappy-sinksource.cpp"
 		$File	"snappy-stubs-internal.cpp"
-	}
-
-	// Select bits from the LZMA SDK to support lzmaDecoder.h
-	// Encoding support requires the full lzma project
-	$Folder "LZMA Decompression Support"
-	{
-		$File	"$SRCDIR\utils\lzma\C\LzmaDec.h"
-		$File	"$SRCDIR\utils\lzma\C\LzmaDec.c"
-		$File	"$SRCDIR\utils\lzma\C\7zTypes.h"
 	}
 
 	$Folder	"Header Files"
@@ -159,6 +149,5 @@ $Project "tier1"
 		$File	"$SRCDIR\public\tier1\utlsymbollarge.h"
 		$File	"$SRCDIR\public\tier1\utlvector.h"
 		$File	"$SRCDIR\public\tier1\utlbinaryblock.h"
-		$File	"$SRCDIR\common\xbox\xboxstubs.h"				[$WINDOWS]
 	}
 }
