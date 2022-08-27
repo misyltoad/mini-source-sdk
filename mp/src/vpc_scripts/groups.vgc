@@ -8,6 +8,16 @@
 // Group definitions //
 ///////////////////////
 
+$Group "jolt"
+{
+	"appframework"
+	"interfaces"
+	"tier1"
+	"mathlib"
+	"joltphysics"
+	"vphysics_jolt"
+}
+
 $Group "gamedlls"
 {
 	"client"
