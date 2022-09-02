@@ -137,6 +137,7 @@ $Project
 	{
 		$Implib	"$LIBPUBLIC\tier0"
 		$Lib	"$LIBPUBLIC\tier1"
+		$Lib	"$LIBPUBLIC\interfaces" [$GAME_ASW]
 		$Implib	"$LIBPUBLIC\vstdlib"
 	}
 }
