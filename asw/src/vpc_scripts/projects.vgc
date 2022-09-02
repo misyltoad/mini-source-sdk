@@ -8,16 +8,6 @@
 // Project definitions //
 /////////////////////////
 
-$Project "joltphysics"
-{
-	"vphysics_jolt/joltphysics/joltphysics.vpc"
-}
-
-$Project "vphysics_jolt"
-{
-	"vphysics_jolt/vphysics_jolt/vphysics_jolt.vpc"
-}
-
 $Project "mathlib"
 {
 	"mathlib\mathlib.vpc" [!$GAME_ASW]
