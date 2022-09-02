@@ -135,10 +135,17 @@ CUtlBlockMemory<T,I>::~CUtlBlockMemory()
 template< class T, class I >
 void CUtlBlockMemory<T,I>::Swap( CUtlBlockMemory< T, I > &mem )
 {
-	swap( m_pMemory, mem.m_pMemory );
-	swap( m_nBlocks, mem.m_nBlocks );
-	swap( m_nIndexMask, mem.m_nIndexMask );
-	swap( m_nIndexShift, mem.m_nIndexShift );
+	V_swap( m_pMemory, mem.m_pMemory );
+	V_swap( m_nBlocks, mem.m_nBlocks );
+
+	// Can't use V_swap on bit fields.
+	uint32 nTmp = m_nIndexMask;
+	m_nIndexMask = mem.m_nIndexMask;
+	mem.m_nIndexMask = nTmp;
+
+	nTmp = m_nIndexShift;
+	m_nIndexShift = mem.m_nIndexShift;
+	mem.m_nIndexShift = nTmp;
 }
 
 

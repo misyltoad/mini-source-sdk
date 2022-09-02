@@ -189,6 +189,7 @@ lib/public/win64/kv3lib.lib
 
 # OSX/Linux build products
 *.mak
+*.project
 *.mak.vpc_crc
 *.xcodeproj/
 obj*/

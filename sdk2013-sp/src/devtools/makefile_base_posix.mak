@@ -44,7 +44,7 @@ CFLAGS = $(ARCH_FLAGS) $(CPPFLAGS) $(WARN_FLAGS) -fvisibility=$(SymbolVisibility
 ifeq ($(CXX),clang++)
 	CXXFLAGS = $(CFLAGS) -std=gnu++0x -Wno-c++11-narrowing -Wno-dangling-else
 else
-	CXXFLAGS = $(CFLAGS) -std=gnu++0x -fpermissive
+	CXXFLAGS = $(CFLAGS) $(WARN_CXX_FLAGS) -std=gnu++20 -Wno-narrowing -Wno-register -Wno-deprecated-enum-enum-conversion -Wno-deprecated-declarations -fpermissive -Wno-volatile -Wno-ignored-attributes -I/usr/include/freetype2
 endif
 DEFINES += -DVPROF_LEVEL=1 -DGNUC -DNO_HOOK_MALLOC -DNO_MALLOC_OVERRIDE
 LDFLAGS = $(CFLAGS) $(GCC_ExtraLinkerFlags) $(OptimizerLevel)
@@ -60,7 +60,8 @@ else
 	WARN_FLAGS = -Wno-write-strings -Wno-multichar
 endif
 
-WARN_FLAGS += -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-sign-compare -Wno-reorder -Wno-invalid-offsetof -Wno-float-equal -Werror=return-type -fdiagnostics-show-option -Wformat -Wformat-security
+WARN_FLAGS += -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-value -Wno-missing-field-initializers -Wno-sign-compare -Wno-float-equal -Wno-switch -fdiagnostics-show-option -Wformat -Werror=format-security -Wstrict-aliasing=2
+WARN_CXX_FLAGS = -Wno-reorder -Wno-invalid-offsetof
 
 
 ifeq ($(OS),Linux)
@@ -106,7 +107,7 @@ ifeq ($(OS),Linux)
 		SSE_GEN_FLAGS = -msse2 -mfpmath=sse
 	endif
 
-	CCACHE := $(SRCROOT)/devtools/bin/linux/ccache
+	CCACHE := 
 
 	ifeq ($(origin GCC_VER), undefined)
 	GCC_VER=-4.6
