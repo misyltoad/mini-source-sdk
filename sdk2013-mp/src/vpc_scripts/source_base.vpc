@@ -12,6 +12,7 @@ $Configuration "Debug"
 {
 	$Compiler
 	{
+		$PreprocessorDefinitions		"VPC"
 		$PreprocessorDefinitions		"$BASE;_RETAIL"					[$RETAIL]
 		$PreprocessorDefinitions		"$BASE;RAD_TELEMETRY_DISABLED"	[$SOURCESDK]
 
@@ -24,6 +25,7 @@ $Configuration "Release"
 {
 	$Compiler
 	{
+		$PreprocessorDefinitions		"VPC"
 		$PreprocessorDefinitions		"$BASE;_RETAIL"					[$RETAIL]
 		$PreprocessorDefinitions		"$BASE;RAD_TELEMETRY_DISABLED"	[$SOURCESDK]
 
