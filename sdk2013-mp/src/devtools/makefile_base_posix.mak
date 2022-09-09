@@ -157,10 +157,11 @@ ifeq ($(OS),Linux)
 	endif
 	VSIGN ?= true
 
-	ifeq ($(SOURCE_SDK), 1)
-		Srv_GAMEOUTPUTFILE := $(GAMEOUTPUTFILE:.so=_srv.so)
-		COPY_DLL_TO_SRV := 1
-	endif
+# Josh: Disabling this for MiniSDK. Unnecessary for Jolt.
+#	ifeq ($(SOURCE_SDK), 1)
+#		Srv_GAMEOUTPUTFILE := $(GAMEOUTPUTFILE:.so=_srv.so)
+#		COPY_DLL_TO_SRV := 1
+#	endif
 
 	LINK_MAP_FLAGS = -Wl,-Map,$(@:.so=).map
 
