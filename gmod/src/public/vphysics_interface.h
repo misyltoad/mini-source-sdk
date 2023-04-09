@@ -964,6 +964,32 @@ struct surfacedata_t
 };
 
 #define VPHYSICS_SURFACEPROPS_INTERFACE_VERSION	"VPhysicsSurfaceProps001"
+// Josh: Garry's Mod CPhysicsSurfaceProps as of 2023/04/10.
+#if 0
+__const:00111060 ; `vtable for'CPhysicsSurfaceProps
+__const:00111060 __ZTV20CPhysicsSurfaceProps dd 0        ; offset to this
+__const:00111064                 dd offset __ZTI20CPhysicsSurfaceProps ; `typeinfo for'CPhysicsSurfaceProps
+__const:00111068 off_111068      dd offset __ZN20CPhysicsSurfacePropsD1Ev
+__const:00111068                                         ; DATA XREF: CPhysicsSurfaceProps::CPhysicsSurfaceProps(void)+F↑o
+__const:00111068                                         ; CPhysicsSurfaceProps::~CPhysicsSurfaceProps()+E↑o
+__const:00111068                                         ; CPhysicsSurfaceProps::~CPhysicsSurfaceProps()
+__const:0011106C                 dd offset __ZN20CPhysicsSurfacePropsD0Ev ; CPhysicsSurfaceProps::~CPhysicsSurfaceProps()
+__const:00111070                 dd offset __ZN20CPhysicsSurfaceProps16ParseSurfaceDataEPKcS1_ ; CPhysicsSurfaceProps::ParseSurfaceData(char const*,char const*)
+__const:00111074                 dd offset __ZNK20CPhysicsSurfaceProps16SurfacePropCountEv ; CPhysicsSurfaceProps::SurfacePropCount(void)
+__const:00111078                 dd offset __ZNK20CPhysicsSurfaceProps15GetSurfaceIndexEPKc ; CPhysicsSurfaceProps::GetSurfaceIndex(char const*)
+__const:0011107C                 dd offset __ZNK20CPhysicsSurfaceProps20GetPhysicsPropertiesEiPfS0_S0_S0_ ; CPhysicsSurfaceProps::GetPhysicsProperties(int,float *,float *,float *,float *)
+__const:00111080                 dd offset __ZN20CPhysicsSurfaceProps14GetSurfaceDataEi ; CPhysicsSurfaceProps::GetSurfaceData(int)
+__const:00111084                 dd offset __ZNK20CPhysicsSurfaceProps9GetStringEt ; CPhysicsSurfaceProps::GetString(ushort)
+__const:00111088                 dd offset __ZNK20CPhysicsSurfaceProps11GetPropNameEi ; CPhysicsSurfaceProps::GetPropName(int)
+__const:0011108C                 dd offset __ZN20CPhysicsSurfaceProps26SetWorldMaterialIndexTableEPii ; CPhysicsSurfaceProps::SetWorldMaterialIndexTable(int *,int)
+__const:00111090                 dd offset __ZNK20CPhysicsSurfaceProps20GetPhysicsParametersEiP22surfacephysicsparams_t ; CPhysicsSurfaceProps::GetPhysicsParameters(int,surfacephysicsparams_t *)
+__const:00111094                 dd offset __ZN20CPhysicsSurfaceProps14GetIVPMaterialEi ; CPhysicsSurfaceProps::GetIVPMaterial(int)
+__const:00111098                 dd offset __ZNK20CPhysicsSurfaceProps19GetIVPMaterialIndexEPK12IVP_Material ; CPhysicsSurfaceProps::GetIVPMaterialIndex(IVP_Material const*)
+__const:0011109C                 dd offset __ZN20CPhysicsSurfaceProps13GetIVPManagerEv ; CPhysicsSurfaceProps::GetIVPManager(void)
+__const:001110A0                 dd offset __ZNK20CPhysicsSurfaceProps21RemapIVPMaterialIndexEi ; CPhysicsSurfaceProps::RemapIVPMaterialIndex(int)
+__const:001110A4                 dd offset __ZNK20CPhysicsSurfaceProps23GetReservedMaterialNameEi ; CPhysicsSurfaceProps::GetReservedMaterialName(int)
+__const:001110A8                 align 10h
+#endif
 abstract_class IPhysicsSurfaceProps
 {
 public:
@@ -989,6 +1015,14 @@ public:
 
 	// NOTE: Same as GetPhysicsProperties, but maybe more convenient
 	virtual void	GetPhysicsParameters( int surfaceDataIndex, surfacephysicsparams_t *pParamsOut ) const = 0;
+	
+	// Josh: Unknown GMod specific stuff.
+	// VTable information taken from OSX vphysics.dylib with symbols with IDA.
+	virtual void			*GetIVPMaterial( int nIndex ) = 0;
+	virtual int				GetIVPMaterialIndex( const void *pMaterial ) const = 0;
+	virtual void			*GetIVPManager( void ) = 0;
+	virtual int				RemapIVPMaterialIndex( int nIndex ) const = 0;
+	virtual const char 		*GetReservedMaterialName( int nMaterialIndex ) const = 0;
 };
 
 abstract_class IPhysicsFluidController
