@@ -1,0 +1,7 @@
+$Conditional "SOURCESDK" "1"
+
+$Include "vpc_scripts\projects.vgc"
+$Include "vpc_scripts\groups.vgc"
+
+$Include "vphysics_jolt\vpc_scripts\vjolt_projects.vgc"
+$Include "vphysics_jolt\vpc_scripts\vjolt_groups.vgc"

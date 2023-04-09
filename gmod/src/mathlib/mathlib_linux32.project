@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="mathlib" InternalType="">
+  <Description/>
+  <Dependencies/>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="">
+        <IncludePath Value=""/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value=""/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make CFG=debug -f mathlib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make CFG=debug -f mathlib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make CFG=debug -f mathlib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f mathlib_linux32.mak clean all</RebuildCommand>
+        <CleanCommand>make -f mathlib_linux32.mak clean</CleanCommand>
+        <BuildCommand>make -f mathlib_linux32.mak -j `getconf _NPROCESSORS_ONLN`</BuildCommand>
+        <WorkingDirectory>$(ProjectPath)</WorkingDirectory>
+      </CustomBuild>
+    </Configuration>
+  </Settings>
+    <VirtualDirectory Name="Source Files">
+      <File Name="3dnow.cpp"/>
+      <File Name="almostequal.cpp"/>
+      <File Name="anorms.cpp"/>
+      <File Name="bumpvects.cpp"/>
+      <File Name="color_conversion.cpp"/>
+      <File Name="halton.cpp"/>
+      <File Name="IceKey.cpp"/>
+      <File Name="imagequant.cpp"/>
+      <File Name="lightdesc.cpp"/>
+      <File Name="mathlib_base.cpp"/>
+      <File Name="polyhedron.cpp"/>
+      <File Name="powsse.cpp"/>
+      <File Name="quantize.cpp"/>
+      <File Name="randsse.cpp"/>
+      <File Name="simdvectormatrix.cpp"/>
+      <File Name="sparse_convolution_noise.cpp"/>
+      <File Name="spherical.cpp"/>
+      <File Name="sse.cpp"/>
+      <File Name="sseconst.cpp"/>
+      <File Name="ssenoise.cpp"/>
+      <File Name="vector.cpp"/>
+      <File Name="vmatrix.cpp"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Header Files">
+      <File Name="../public/mathlib/amd3dx.h"/>
+      <File Name="../public/mathlib/anorms.h"/>
+      <File Name="../public/mathlib/bumpvects.h"/>
+      <File Name="../public/mathlib/compressed_3d_unitvec.h"/>
+      <File Name="../public/mathlib/compressed_light_cube.h"/>
+      <File Name="../public/mathlib/compressed_vector.h"/>
+      <File Name="../public/mathlib/halton.h"/>
+      <File Name="../public/mathlib/IceKey.H"/>
+      <File Name="../public/mathlib/lightdesc.h"/>
+      <File Name="../public/mathlib/mathlib.h"/>
+      <File Name="../public/mathlib/math_pfns.h"/>
+      <File Name="../public/mathlib/noise.h"/>
+      <File Name="../public/mathlib/polyhedron.h"/>
+      <File Name="../public/mathlib/quantize.h"/>
+      <File Name="../public/mathlib/simdvectormatrix.h"/>
+      <File Name="../public/mathlib/spherical_geometry.h"/>
+      <File Name="../public/mathlib/ssemath.h"/>
+      <File Name="../public/mathlib/ssequaternion.h"/>
+      <File Name="../public/mathlib/vector.h"/>
+      <File Name="../public/mathlib/vector2d.h"/>
+      <File Name="../public/mathlib/vector4d.h"/>
+      <File Name="../public/mathlib/vmatrix.h"/>
+      <File Name="../public/mathlib/vplane.h"/>
+      <File Name="3dnow.h"/>
+      <File Name="noisedata.h"/>
+      <File Name="sse.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="Resources">
+    </VirtualDirectory>
+    <VirtualDirectory Name="VPC Files">
+      <File Name="../vpc_scripts/platform_dirs.vpc"/>
+      <File Name="../vpc_scripts/source_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_base.vpc"/>
+      <File Name="../vpc_scripts/source_lib_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_posix_base.vpc"/>
+      <File Name="../vpc_scripts/source_video_base.vpc"/>
+      <File Name="../vpc_scripts/version.vpc"/>
+      <File Name="mathlib.vpc"/>
+    </VirtualDirectory>
+</CodeLite_Project>

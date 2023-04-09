@@ -1,0 +1,35 @@
+//-----------------------------------------------------------------------------
+//	source_base.VPC
+//
+//  This is the base VPC file that is included by all others, on all platforms.
+//
+//	Project Script
+//-----------------------------------------------------------------------------
+
+$Macro GAMEDIR "game"
+
+$Configuration "Debug"
+{
+	$Compiler
+	{
+		$PreprocessorDefinitions		"VPC"
+		$PreprocessorDefinitions		"$BASE;_RETAIL"					[$RETAIL]
+		$PreprocessorDefinitions		"$BASE;RAD_TELEMETRY_DISABLED"	[$SOURCESDK]
+
+		$PreprocessorDefinitions		"$BASE;GAME_SDK2013"			[$GAME_SDK2013]
+		$PreprocessorDefinitions		"$BASE;GAME_ASW"				[$GAME_ASW]
+	}
+}
+
+$Configuration "Release"
+{
+	$Compiler
+	{
+		$PreprocessorDefinitions		"VPC"
+		$PreprocessorDefinitions		"$BASE;_RETAIL"					[$RETAIL]
+		$PreprocessorDefinitions		"$BASE;RAD_TELEMETRY_DISABLED"	[$SOURCESDK]
+
+		$PreprocessorDefinitions		"$BASE;GAME_SDK2013"			[$GAME_SDK2013]
+		$PreprocessorDefinitions		"$BASE;GAME_ASW"				[$GAME_ASW]
+	}
+}
