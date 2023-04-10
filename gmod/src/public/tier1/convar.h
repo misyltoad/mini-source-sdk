@@ -396,7 +396,7 @@ private:
 
 	// Static data
 	const char					*m_pszDefaultValue;
-	
+
 	// Value
 	// Dynamically allocated
 	char						*m_pszString;
@@ -414,6 +414,9 @@ private:
 	
 	// Call this function when ConVar changes
 	FnChangeCallback_t			m_fnChangeCallback;
+	
+	// Josh: Handle server-enforced convar copy by adding a bunch of 0'ed padding at the end.
+	char 						m_Padding[64] = {};
 };
 
 
