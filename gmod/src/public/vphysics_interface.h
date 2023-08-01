@@ -965,7 +965,7 @@ struct surfacedata_t
 
 #define VPHYSICS_SURFACEPROPS_INTERFACE_VERSION	"VPhysicsSurfaceProps001"
 // Josh: Garry's Mod CPhysicsSurfaceProps as of 2023/04/10.
-#if 0
+/*
 __const:00111060 ; `vtable for'CPhysicsSurfaceProps
 __const:00111060 __ZTV20CPhysicsSurfaceProps dd 0        ; offset to this
 __const:00111064                 dd offset __ZTI20CPhysicsSurfaceProps ; `typeinfo for'CPhysicsSurfaceProps
@@ -989,7 +989,7 @@ __const:0011109C                 dd offset __ZN20CPhysicsSurfaceProps13GetIVPMan
 __const:001110A0                 dd offset __ZNK20CPhysicsSurfaceProps21RemapIVPMaterialIndexEi ; CPhysicsSurfaceProps::RemapIVPMaterialIndex(int)
 __const:001110A4                 dd offset __ZNK20CPhysicsSurfaceProps23GetReservedMaterialNameEi ; CPhysicsSurfaceProps::GetReservedMaterialName(int)
 __const:001110A8                 align 10h
-#endif
+*/
 abstract_class IPhysicsSurfaceProps
 {
 public:
